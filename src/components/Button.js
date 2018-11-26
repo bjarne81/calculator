@@ -6,12 +6,13 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   border: 1px solid red;
-  grid-row: ${props => 'span ' + props.span};
+  grid-row: ${props => 'span ' + props.rowSpan};
+  grid-column: ${props => 'span ' + props.colSpan};
 `
 
-function Button({ onClick, span, value, label }) {
+function Button({ onClick, value, label, ...props }) {
   return (
-    <Wrapper onClick={onClick} span={span} data-value={value}>
+    <Wrapper onClick={onClick} data-value={value} {...props}>
       {label}
     </Wrapper>
   )
