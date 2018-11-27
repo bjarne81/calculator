@@ -1,42 +1,41 @@
 import React, { useState } from 'react'
 import Display from './Display'
-import Buttons from './Buttons'
-import Button from './Button'
+import CalculatorKeys from './CalculatorKeys'
+import CalculatorKey from './CalculatorKey'
 
 function App() {
-  const [operations, setOperations] = useState([])
-  const handleClick = e => {
-    const value = e.target.getAttribute('data-value')
-    console.log(value)
+  const [displayValue, setDisplayValue] = useState(0)
+  const handleClick = value => {
+    setDisplayValue(value)
   }
   return (
     <div className="App">
-      <Buttons>
-        <Display data={operations} colSpan="4" />
-        <Button onClick={handleClick} label="AC" value="clear" />
-        <Button onClick={handleClick} label="+/-" value="clear" />
-        <Button onClick={handleClick} label="%" value="%" />
-        <Button onClick={handleClick} label="/" value="/" />
+      <CalculatorKeys>
+        <Display value={displayValue} colSpan="4" />
+        <CalculatorKey onPress={() => handleClick('clear')}>AC</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('+/-')}>+/-</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('%')}>%</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('/')}>/</CalculatorKey>
 
-        <Button onClick={handleClick} label="7" value="7" />
-        <Button onClick={handleClick} label="8" value="8" />
-        <Button onClick={handleClick} label="9" value="9" />
-        <Button onClick={handleClick} label="x" value="*" />
+        <CalculatorKey onPress={() => handleClick('7')}>7</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('8')}>8</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('9')}>9</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('*')}>x</CalculatorKey>
 
-        <Button onClick={handleClick} label="4" value="4" />
-        <Button onClick={handleClick} label="5" value="5" />
-        <Button onClick={handleClick} label="6" value="6" />
-        <Button onClick={handleClick} label="-" value="-" />
+        <CalculatorKey onPress={() => handleClick('4')}>4</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('5')}>5</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('6')}>6</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('-')}>-</CalculatorKey>
 
-        <Button onClick={handleClick} label="1" value="1" />
-        <Button onClick={handleClick} label="2" value="2" />
-        <Button onClick={handleClick} label="3" value="3" />
-        <Button onClick={handleClick} label="+" value="+" />
+        <CalculatorKey onPress={() => handleClick('1')}>1</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('2')}>2</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('3')}>3</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('+')}>+</CalculatorKey>
 
-        <Button onClick={handleClick} label="0" value="0" colSpan="2" />
-        <Button onClick={handleClick} label="." value="." />
-        <Button onClick={handleClick} label="=" span="2" value="equal" />
-      </Buttons>
+        <CalculatorKey onPress={() => handleClick('0')}>0</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('.')}>.</CalculatorKey>
+        <CalculatorKey onPress={() => handleClick('=')}>=</CalculatorKey>
+      </CalculatorKeys>
     </div>
   )
 }

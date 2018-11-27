@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+const Key = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,12 +10,14 @@ const Wrapper = styled.div`
   grid-column: ${props => 'span ' + props.colSpan};
 `
 
-function Button({ onClick, value, label, ...props }) {
+function CalculatorKey({ onPress, className, ...props  }) {
+
   return (
-    <Wrapper onClick={onClick} data-value={value} {...props}>
-      {label}
-    </Wrapper>
+    <Key onClick={onPress}>
+      <button {...props}/>
+    </Key>
   )
+
 }
 
-export default Button
+export default CalculatorKey

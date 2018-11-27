@@ -7,8 +7,8 @@ const Wrapper = styled.div`
   height: 100%;
 `
 
-function Buttons({ children }) {
+function CalculatorKeys({ children }) {
   return <Wrapper> {children} </Wrapper>
 }
 
-export default Buttons
+export default CalculatorKeys
