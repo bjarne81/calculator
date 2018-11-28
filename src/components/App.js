@@ -6,6 +6,9 @@ import CalculatorKey from './CalculatorKey'
 function App() {
   const [displayValue, setDisplayValue] = useState(String(0))
   const handleClick = value => {
+    if (value === 'clear') {
+      return setDisplayValue(String(0))
+    }
     setDisplayValue(displayValue + value)
   }
   return (
